@@ -211,7 +211,7 @@ function barChart(target, items, { unit = "", ref = null, digits = 0 } = {}) {
   if (ref) {
     const refX = labelW + (ref.value / max) * plotW;
     if (refX < labelW + plotW) {
-      const label = truncated(ref.label, 38);
+      const label = truncated(ref.label, 46);
       const fitsRight = refX + 8 + label.length * 5.6 < width - 6;
       svg.appendChild(svgEl("line", { class: "chart__ref", x1: refX, y1: top, x2: refX, y2: height - bottom }));
       svg.appendChild(
