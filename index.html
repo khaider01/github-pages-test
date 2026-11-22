@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub Pages Test</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --accent: #2f81f7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 48rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      letter-spacing: -0.02em;
+    }
+    .badge {
+      display: inline-block;
+      margin-bottom: 1.25rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    p {
+      margin: 0 0 0.75rem;
+      opacity: 0.8;
+    }
+    .stamp {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      opacity: 0.55;
+    }
+    code {
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      background: rgba(127, 127, 127, 0.18);
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="badge">Live</span>
+    <h1>GitHub Pages is working</h1>
+    <p>This page is served straight from the <code>main</code> branch of <code>khaider01/github-pages-test</code>.</p>
+    <p>Edit <code>index.html</code>, push, and the site updates automatically.</p>
+    <p class="stamp">Deployed with GitHub Pages</p>
+  </main>
+</body>
+</html>
