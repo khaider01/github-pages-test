@@ -19,7 +19,8 @@ https://khaider01.github.io/github-pages-test/
 | `resources.html` | Primary literature, agency programs, databases, code and citation guidance |
 
 Supporting files: `assets/css/styles.css` (design system), `assets/js/explore.js`
-(dataset + premade functions + SVG charts), `assets/img/` (drop figures here).
+(dataset + premade functions + SVG charts), `assets/img/` (drop figures here),
+`docs/data-workflow.md` (how the data gets published).
 
 ## What still needs real content
 
@@ -31,7 +32,9 @@ Supporting files: `assets/css/styles.css` (design system), `assets/js/explore.js
    { site: "…", type: "…", region: "…", year: 2022, month: 5, value: 123 }
    ```
    `value` is 6PPD-quinone in ng/L. Charts, tables, statistics and the KPI tiles all
-   recompute from whatever is in that array.
+   recompute from whatever is in that array. The intended end state is generated
+   JSON under `data/` instead of an inline array — see
+   [docs/data-workflow.md](docs/data-workflow.md).
 3. **Reference threshold** — `REFERENCE` in the same file (currently 95 ng/L, the
    approximate coho acute toxicity threshold from the literature).
 4. **Resources** — add DOI links and dataset links as they are confirmed.
@@ -52,6 +55,27 @@ Supporting files: `assets/css/styles.css` (design system), `assets/js/explore.js
   `prefers-color-scheme`.
 - Charts are hand-built SVG (no chart library) so they inherit the theme colours.
 - Sample data is explicitly labelled as illustrative on every page that shows it.
+
+## Data: how it gets published
+
+The site is static, so it cannot query Access or any database at runtime. Data
+reaches the site through a **one-way snapshot export**, documented in
+[docs/data-workflow.md](docs/data-workflow.md):
+
+1. Curators edit the five tables in Access (or the CSVs). That is the editing store.
+2. A saved query plus a converter produce `data/*.json` with the primary and foreign
+   keys intact. That is the publishing store, and it is machine-generated only.
+3. The export is validated (row counts, orphan keys, `ng/L` units, ISO dates) before
+   anything is committed. A failed check stops the commit.
+4. `git push` to `main` — Pages serves the new snapshot within about a minute.
+
+Consequences: every published number is traceable to a commit, the editing store is
+never exposed to the browser, and refreshing the data never involves touching HTML.
+Automation runs from a manual five-minute routine up to a GitHub Actions workflow that
+converts and validates on every push.
+
+Right now the explorer still ships its illustrative rows inline in
+`assets/js/explore.js`; the `data/` files and converter are the next step.
 
 ## Local preview
 
