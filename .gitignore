@@ -5,3 +5,8 @@ desktop.ini
 *.swp
 .idea/
 .vscode/
+
+# Local scratch notes (not part of the published site)
+notes.txt
+_debug-*.html
+

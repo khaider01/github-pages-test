@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resources — papers, data and code</title>
+  <meta name="description" content="Primary literature, agency resources, datasets and source code for 6PPD-quinone research and monitoring.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d7181'/%3E%3Ctext x='16' y='21' font-family='system-ui,sans-serif' font-size='12' font-weight='700' fill='%23ffffff' text-anchor='middle'%3E6Q%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">6Q</span>
+      <span class="brand__name">6PPD-Q Data Hub<span>Tire-derived contaminant database</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__link" href="index.html">Overview</a>
+      <a class="nav__link" href="background.html">Background</a>
+      <a class="nav__link" href="storybook.html">Storybook</a>
+      <a class="nav__link" href="explore.html">Explore</a>
+      <a class="nav__link is-active" href="resources.html" aria-current="page">Resources</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <p class="eyebrow">Resources</p>
+      <h1 class="hero__title">Where the evidence lives</h1>
+      <p class="hero__lead">
+        Starting points for the primary literature, the agency programs, the analytical resources and the code
+        behind this site. Links go to publishers, agency sites and repositories rather than mirrors — always
+        check the source before citing a number.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 class="section__title">Primary literature</h2>
+        <p class="section__lead">The papers that established the problem and the ones worth reading next.</p>
+      </div>
+
+      <div class="res-grid">
+        <a class="res" href="https://doi.org/10.1126/science.abd6951" rel="noopener">
+          <span class="res__tag">Paper · 2020</span>
+          <h3>A ubiquitous tire rubber–derived chemical induces acute mortality in coho salmon</h3>
+          <p>Tian et al., <em>Science</em>. Identifies 6PPD-quinone as the compound responsible for urban runoff mortality syndrome in coho salmon.</p>
+          <span class="res__url">doi.org/10.1126/science.abd6951</span>
+        </a>
+
+        <a class="res" href="https://scholar.google.com/scholar?q=6PPD-quinone+toxicity+salmon" rel="noopener">
+          <span class="res__tag">Literature search</span>
+          <h3>6PPD-quinone toxicity literature</h3>
+          <p>A live Google Scholar query for the toxicity and occurrence literature. Use it to find the newest studies and species-sensitivity work.</p>
+          <span class="res__url">scholar.google.com</span>
+        </a>
+
+        <a class="res" href="https://scholar.google.com/scholar?q=urban+runoff+mortality+syndrome+coho+salmon" rel="noopener">
+          <span class="res__tag">Background reading</span>
+          <h3>Urban runoff mortality syndrome in coho salmon</h3>
+          <p>The earlier studies that documented pre-spawn mortality in urban Puget Sound streams before the causal chemical was known.</p>
+          <span class="res__url">scholar.google.com</span>
+        </a>
+      </div>
+
+      <div class="note spacer-lg">
+        <p><strong>Keep this list honest.</strong> Every entry should be something you have actually read and can
+        defend. When you add a paper, include the year, the journal, and what it contributed — not just a title.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 class="section__title">Agencies and regulatory programs</h2>
+        <p class="section__lead">Where the monitoring methods, benchmarks and product rules are published.</p>
+      </div>
+
+      <div class="res-grid">
+        <a class="res" href="https://ecology.wa.gov" rel="noopener">
+          <span class="res__tag">Agency · Washington</span>
+          <h3>Washington State Department of Ecology</h3>
+          <p>Safer Products for Washington work on 6PPD in tires, plus stormwater monitoring and permit language. Search the site for "6PPD".</p>
+          <span class="res__url">ecology.wa.gov</span>
+        </a>
+
+        <a class="res" href="https://dtsc.ca.gov" rel="noopener">
+          <span class="res__tag">Agency · California</span>
+          <h3>California Department of Toxic Substances Control</h3>
+          <p>Safer Consumer Products program, including work on tires and 6PPD. Useful for the regulatory timeline and the alternatives analysis.</p>
+          <span class="res__url">dtsc.ca.gov</span>
+        </a>
+
+        <a class="res" href="https://comptox.epa.gov/dashboard/" rel="noopener">
+          <span class="res__tag">Database · US EPA</span>
+          <h3>EPA CompTox Chemicals Dashboard</h3>
+          <p>Chemical identity, fate and toxicity data. Search "6PPD-quinone" for structure, identifiers and linked studies.</p>
+          <span class="res__url">comptox.epa.gov/dashboard</span>
+        </a>
+
+        <a class="res" href="https://pubchem.ncbi.nlm.nih.gov/" rel="noopener">
+          <span class="res__tag">Database · NCBI</span>
+          <h3>PubChem</h3>
+          <p>Compound records for 6PPD and 6PPD-quinone: synonyms, CAS numbers, spectra and literature links.</p>
+          <span class="res__url">pubchem.ncbi.nlm.nih.gov</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="data">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 class="section__title">Data and code</h2>
+        <p class="section__lead">Everything on this site is inspectable. Start here.</p>
+      </div>
+
+      <div class="res-grid">
+        <a class="res" href="https://github.com/khaider01/github-pages-test" rel="noopener">
+          <span class="res__tag">Code · repository</span>
+          <h3>Site source</h3>
+          <p>The complete static site: five pages, one stylesheet, one script. Open an issue or a pull request to correct a number.</p>
+          <span class="res__url">github.com/khaider01/github-pages-test</span>
+        </a>
+
+        <a class="res" href="assets/js/explore.js">
+          <span class="res__tag">Code · data layer</span>
+          <h3>explore.js</h3>
+          <p>The dataset and the premade functions. Replace the <code>DATASET</code> block with a real export and every analysis updates.</p>
+          <span class="res__url">assets/js/explore.js</span>
+        </a>
+
+        <a class="res" href="explore.html">
+          <span class="res__tag">Data · export</span>
+          <h3>Download the current selection</h3>
+          <p>Open the explorer and use "Download selection as CSV" to export exactly the rows behind any chart.</p>
+          <span class="res__url">explore.html → CSV</span>
+        </a>
+
+        <a class="res" href="assets/css/styles.css">
+          <span class="res__tag">Code · design</span>
+          <h3>styles.css</h3>
+          <p>The design system: colour tokens, light and dark themes, layout primitives and chart styling.</p>
+          <span class="res__url">assets/css/styles.css</span>
+        </a>
+      </div>
+
+      <div class="grid grid--2 spacer-lg">
+        <div class="prose">
+          <h3>How to cite this site</h3>
+          <p class="muted">Use the repository URL and the date you accessed it, for example:</p>
+          <pre><code>Khaider, K. (2026). 6PPD-Q Data Hub.
+https://khaider01.github.io/github-pages-test/
+Accessed: 21 November 2026.</code></pre>
+          <p class="mb-0">Update the author, year and access date before publishing or citing. The written
+          content is a working draft; cite the underlying papers for any scientific claim.</p>
+        </div>
+
+        <div class="prose">
+          <h3>Contributing</h3>
+          <ul>
+            <li><strong>Found an error?</strong> Open an issue in the repository with the page and the sentence.</li>
+            <li><strong>Have data?</strong> Records need site, type, region, date, concentration and a source reference.</li>
+            <li><strong>Have a figure?</strong> Add it to <code>assets/img/</code> and reference it from the relevant page.</li>
+            <li><strong>No build step:</strong> edit the file, commit, push — GitHub Pages serves it as written.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap band__inner">
+      <div>
+        <h2>See how the data is used</h2>
+        <p>The explorer turns these sources into charts, tables and summary statistics you can re-run yourself.</p>
+      </div>
+      <a class="btn" href="explore.html">Open the explorer</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__inner">
+      <div>
+        <h4>6PPD-Q Data Hub</h4>
+        <p class="mb-0">
+          An open resource on 6PPD-quinone: what has been measured, where, and what it means for salmon
+          and for the people who manage stormwater.
+        </p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="background.html">Background</a></li>
+          <li><a href="storybook.html">Storybook</a></li>
+          <li><a href="explore.html">Explore</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="https://github.com/khaider01/github-pages-test">Source on GitHub</a></li>
+          <li><a href="resources.html#data">Data &amp; code</a></li>
+          <li><a href="explore.html">Interactive explorer</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="site-footer__note">
+      Built as a static site for GitHub Pages. Written content is a working draft unless marked otherwise;
+      sample data is illustrative and must not be cited.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
+

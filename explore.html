@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore — filter the database and run premade analyses</title>
+  <meta name="description" content="Interactive explorer for 6PPD-quinone measurements: filter by region and site type, then run premade statistical analyses and charts.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d7181'/%3E%3Ctext x='16' y='21' font-family='system-ui,sans-serif' font-size='12' font-weight='700' fill='%23ffffff' text-anchor='middle'%3E6Q%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">6Q</span>
+      <span class="brand__name">6PPD-Q Data Hub<span>Tire-derived contaminant database</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__link" href="index.html">Overview</a>
+      <a class="nav__link" href="background.html">Background</a>
+      <a class="nav__link" href="storybook.html">Storybook</a>
+      <a class="nav__link is-active" href="explore.html" aria-current="page">Explore</a>
+      <a class="nav__link" href="resources.html">Resources</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <p class="eyebrow">Explorer</p>
+      <h1 class="hero__title">Find your own answer in the data</h1>
+      <p class="hero__lead">
+        Choose a slice of the database, then run a premade analysis. Every number below is computed in your
+        browser from the current selection — nothing is hard-coded into the charts.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-block:1.25rem">
+    <div class="wrap">
+      <div class="note note--sample">
+        <p><strong>Sample data.</strong> This view is wired to an illustrative 26-row dataset so the layout and
+        analyses can be exercised. Values are not literature results and must not be cited. To go live, replace
+        the <code>DATASET</code> block in <code>assets/js/explore.js</code> with your export.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+
+      <div class="controls">
+        <label class="field">
+          Region
+          <select id="region-select"></select>
+        </label>
+        <label class="field">
+          Site type
+          <select id="type-select"></select>
+        </label>
+        <button class="btn btn--ghost btn--sm" type="button" id="download-csv">Download selection as CSV</button>
+      </div>
+
+      <div class="stats spacer-lg" id="kpis" aria-live="polite"></div>
+
+      <div class="tabs" role="tablist" aria-label="Premade analyses">
+        <button class="tab is-active" type="button" role="tab" aria-selected="true" data-view="summary">Summary by site type</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-view="top">Highest sites</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-view="seasonal">Seasonal pattern</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-view="exceedance">Threshold exceedance</button>
+      </div>
+
+      <figure class="chart-card">
+        <figcaption id="chart-caption">Median 6PPD-quinone concentration per site type, with the coho reference line.</figcaption>
+        <div id="chart" aria-live="polite"></div>
+      </figure>
+      <p class="chart-hint muted">Scroll the chart sideways to see the full axis.</p>
+
+      <p class="muted" id="selection-count" style="margin-top:0.9rem" aria-live="polite"></p>
+
+      <div class="table-wrap spacer-lg" aria-live="polite">
+        <div id="table-target"></div>
+      </div>
+
+      <div class="grid grid--2 spacer-lg">
+        <div class="note">
+          <p><strong>How to read the reference line.</strong> The dashed marker sits at 95 ng/L, the approximate
+          acute toxicity threshold for coho salmon reported in the literature. Bars that cross it represent
+          concentrations in the range that has killed coho in stormwater exposures.</p>
+        </div>
+        <div class="note">
+          <p><strong>What the filters do.</strong> Region and site type are applied before every analysis, so
+          changing either one recomputes the chart, the table and the summary tiles from scratch. Use the CSV
+          download to take the exact selection into R, Python or a spreadsheet.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 class="section__title">The premade functions</h2>
+        <p class="section__lead">
+          The explorer runs on a small, readable helper library (<code>gp</code>) defined at the top of
+          <code>assets/js/explore.js</code>. These are the building blocks behind every chart and table — re-use
+          them when you add a new analysis.
+        </p>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="card">
+          <h3><code>gp.filter(rows, { region, type })</code></h3>
+          <p>Returns only the rows matching the current selection. Called before every analysis.</p>
+        </div>
+        <div class="card">
+          <h3><code>gp.groupBy(rows, keyFn)</code></h3>
+          <p>Buckets rows by any field — site type, region, month — and returns an object of arrays.</p>
+        </div>
+        <div class="card">
+          <h3><code>gp.summary(rows, keyFn)</code></h3>
+          <p>One call gives n, median, mean, maximum and the share above the reference threshold for each group.</p>
+        </div>
+        <div class="card">
+          <h3><code>gp.median(values)</code> · <code>gp.mean(values)</code></h3>
+          <p>Distribution helpers that ignore nothing: filter out non-detects explicitly if your data needs it.</p>
+        </div>
+        <div class="card">
+          <h3><code>gp.csv(rows)</code></h3>
+          <p>Serializes the selection to CSV with quoted fields, ready for a spreadsheet or a notebook.</p>
+        </div>
+        <div class="card">
+          <h3><code>barChart()</code> · <code>lineChart()</code></h3>
+          <p>Dependency-free SVG renderers. They take plain arrays and inherit the site's colour scheme.</p>
+        </div>
+      </div>
+
+      <div class="prose spacer-lg">
+        <h3>Adding a new analysis</h3>
+        <p>Each analysis is one entry in the <code>VIEWS</code> object. Add a key, give it a label and a
+        <code>chart(rows, target)</code> method that draws the chart and returns the table columns:</p>
+        <pre><code>VIEWS.byRegion = {
+  tab: "By region",
+  chart(rows, target) {
+    const stats = gp.summary(rows, (r) =&gt; r.region);
+    barChart(target, stats.map((s) =&gt; ({ label: s.name, value: s.median })));
+    return {
+      caption: "Median concentration by region.",
+      head: [{ label: "Region" }, { label: "Median (ng/L)", num: true }],
+      body: stats.map((s) =&gt; [s.name, gp.fmt(s.median)])
+    };
+  }
+};</code></pre>
+        <p class="mb-0">Then add a button to the tab list in <code>explore.html</code>:
+        <code>&lt;button class="tab" type="button" role="tab" aria-selected="false" data-view="byRegion"&gt;By region&lt;/button&gt;</code>.
+        Nothing else needs to change — the wiring picks up every element with <code>data-view</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap band__inner">
+      <div>
+        <h2>Where the numbers come from</h2>
+        <p>Every measurement on this site should trace back to a paper, a report or a public dataset.</p>
+      </div>
+      <a class="btn" href="resources.html">Open resources</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__inner">
+      <div>
+        <h4>6PPD-Q Data Hub</h4>
+        <p class="mb-0">
+          An open resource on 6PPD-quinone: what has been measured, where, and what it means for salmon
+          and for the people who manage stormwater.
+        </p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="background.html">Background</a></li>
+          <li><a href="storybook.html">Storybook</a></li>
+          <li><a href="explore.html">Explore</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="https://github.com/khaider01/github-pages-test">Source on GitHub</a></li>
+          <li><a href="resources.html#data">Data &amp; code</a></li>
+          <li><a href="explore.html">Interactive explorer</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="site-footer__note">
+      Built as a static site for GitHub Pages. Written content is a working draft unless marked otherwise;
+      sample data is illustrative and must not be cited.
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/explore.js"></script>
+</body>
+</html>
+

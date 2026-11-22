@@ -3,67 +3,231 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Pages Test</title>
-  <style>
-    :root {
-      color-scheme: light dark;
-      --accent: #2f81f7;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-    }
-    main {
-      max-width: 48rem;
-      text-align: center;
-    }
-    h1 {
-      margin: 0 0 0.5rem;
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      letter-spacing: -0.02em;
-    }
-    .badge {
-      display: inline-block;
-      margin-bottom: 1.25rem;
-      padding: 0.25rem 0.75rem;
-      border: 1px solid var(--accent);
-      border-radius: 999px;
-      color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    p {
-      margin: 0 0 0.75rem;
-      opacity: 0.8;
-    }
-    .stamp {
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      opacity: 0.55;
-    }
-    code {
-      padding: 0.15rem 0.4rem;
-      border-radius: 4px;
-      background: rgba(127, 127, 127, 0.18);
-      font-size: 0.9em;
-    }
-  </style>
+  <title>6PPD-Q Data Hub — overview</title>
+  <meta name="description" content="An open hub for 6PPD-quinone measurements, methods and findings: background, research story, and an interactive explorer.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d7181'/%3E%3Ctext x='16' y='21' font-family='system-ui,sans-serif' font-size='12' font-weight='700' fill='%23ffffff' text-anchor='middle'%3E6Q%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <main>
-    <span class="badge">Live</span>
-    <h1>GitHub Pages is working</h1>
-    <p>This page is served straight from the <code>main</code> branch of <code>khaider01/github-pages-test</code>.</p>
-    <p>Edit <code>index.html</code>, push, and the site updates automatically.</p>
-    <p class="stamp">Deployed with GitHub Pages</p>
-  </main>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">6Q</span>
+      <span class="brand__name">6PPD-Q Data Hub<span>Tire-derived contaminant database</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__link is-active" href="index.html" aria-current="page">Overview</a>
+      <a class="nav__link" href="background.html">Background</a>
+      <a class="nav__link" href="storybook.html">Storybook</a>
+      <a class="nav__link" href="explore.html">Explore</a>
+      <a class="nav__link" href="resources.html">Resources</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <p class="eyebrow">Open dataset · Work in progress</p>
+      <h1 class="hero__title">Making tire-derived 6PPD-quinone data usable</h1>
+      <p class="hero__lead">
+        A chemical that wears off our tires is washing into streams and killing coho salmon before they
+        can spawn. The 6PPD-Q Data Hub pulls the measurements, methods and findings about it into one
+        place — so they can be read, compared and questioned instead of sitting in scattered PDFs.
+      </p>
+      <div class="hero__actions">
+        <a class="btn" href="explore.html">Explore the data</a>
+        <a class="btn btn--ghost" href="storybook.html">Read the story</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 class="section__title">What this project is for</h2>
+        <p class="section__lead">
+          Three goals, in order of importance: make the science legible, make the data reusable, and make
+          the gaps obvious.
+        </p>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="prose">
+          <p>
+            6PPD-quinone (6PPD-Q) was only identified as a widespread urban runoff contaminant in 2020,
+            yet it is now one of the most-studied tire-related chemicals in the environment. Research has
+            grown faster than the ability to compare it: different matrices, different detection limits,
+            different ways of reporting a result.
+          </p>
+          <p>
+            This hub is a single, citable place to see what has been measured, how, and where — starting
+            with the Puget Sound work on coho salmon and widening from there.
+          </p>
+          <p class="mb-0">
+            It is deliberately small and static: plain HTML, plain JavaScript, no build step. Everything
+            you see lives in a public repository, so anyone can check a number or fix a typo.
+          </p>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="stat__value">1</span>
+            <span class="stat__label">chemical of focus — 6PPD-quinone, the tire antioxidant transformation product</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">&lt; 100 ng/L</span>
+            <span class="stat__label">approximate acute lethal range for coho salmon in stormwater</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">5</span>
+            <span class="stat__label">sections: overview, background, research story, explorer, resources</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">0</span>
+            <span class="stat__label">build steps — every page is served exactly as written</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 class="section__title">Four ways in</h2>
+        <p class="section__lead">Pick the entry point that matches what you need today.</p>
+      </div>
+
+      <div class="grid">
+        <a class="card card--link" href="background.html">
+          <span class="card__kicker">Background</span>
+          <h3>What 6PPD-Q actually is</h3>
+          <p>The chemistry, where it comes from, why a tire additive ends up in salmon streams, and how it became a regulatory topic.</p>
+          <span class="card__cta">Read the primer →</span>
+        </a>
+
+        <a class="card card--link" href="storybook.html">
+          <span class="card__kicker">Storybook</span>
+          <h3>What the research found</h3>
+          <p>A chapter-by-chapter walkthrough of the findings, with the numbers and figures that carried the argument.</p>
+          <span class="card__cta">Follow the story →</span>
+        </a>
+
+        <a class="card card--link" href="explore.html">
+          <span class="card__kicker">Explorer</span>
+          <h3>Ask the database your own question</h3>
+          <p>Filter by region and site type, then run premade analyses: medians, rankings, seasonal patterns, threshold exceedance.</p>
+          <span class="card__cta">Open the explorer →</span>
+        </a>
+
+        <a class="card card--link" href="resources.html">
+          <span class="card__kicker">Resources</span>
+          <h3>Papers, data and code</h3>
+          <p>The primary literature, agency pages, datasets and the source code behind every figure on this site.</p>
+          <span class="card__cta">Browse resources →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--2">
+        <div>
+          <h2 class="section__title">Inside the database</h2>
+          <p class="muted">Every record keeps enough context to be re-used, not just re-quoted.</p>
+          <div class="table-wrap">
+            <table>
+              <caption>Fields captured for each measurement</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Field</th>
+                  <th scope="col">What it holds</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="tag">site</span></td><td>Sampling location as reported by the study</td></tr>
+                <tr><td><span class="tag">type</span></td><td>Road runoff, receiving water, stormwater pond, effluent, laboratory leachate</td></tr>
+                <tr><td><span class="tag">region</span></td><td>Watershed or region used for grouping</td></tr>
+                <tr><td><span class="tag">date</span></td><td>Year and month of collection</td></tr>
+                <tr><td><span class="tag">value</span></td><td>6PPD-quinone concentration in ng/L</td></tr>
+                <tr><td><span class="tag">source</span></td><td>Paper or dataset the record comes from</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="stack">
+          <div class="note note--sample">
+            <p><strong>Data status:</strong> the explorer currently runs on a small illustrative sample so the
+            layout and analyses can be tested. Replace <code>DATASET</code> in <code>assets/js/explore.js</code>
+            with a real export and every chart, table and statistic updates automatically.</p>
+          </div>
+          <div class="note">
+            <p><strong>Queryable database (next):</strong> a hosted, open-access database with its own query
+            interface is the natural next step after this static version. The explorer is designed to be
+            swapped onto that backend without changing the pages.</p>
+          </div>
+          <p class="mb-0">
+            <a class="btn btn--ghost btn--sm" href="https://github.com/khaider01/github-pages-test">View the repository</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap band__inner">
+      <div>
+        <h2>Start with one question</h2>
+        <p>How much 6PPD-Q reaches a stream near you — and how does it compare to the level that harms coho?</p>
+      </div>
+      <a class="btn" href="explore.html">Open the explorer</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__inner">
+      <div>
+        <h4>6PPD-Q Data Hub</h4>
+        <p class="mb-0">
+          An open resource on 6PPD-quinone: what has been measured, where, and what it means for salmon
+          and for the people who manage stormwater.
+        </p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="background.html">Background</a></li>
+          <li><a href="storybook.html">Storybook</a></li>
+          <li><a href="explore.html">Explore</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="https://github.com/khaider01/github-pages-test">Source on GitHub</a></li>
+          <li><a href="resources.html#data">Data &amp; code</a></li>
+          <li><a href="explore.html">Interactive explorer</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="site-footer__note">
+      Built as a static site for GitHub Pages. Written content is a working draft unless marked otherwise;
+      sample data is illustrative and must not be cited.
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>
+
